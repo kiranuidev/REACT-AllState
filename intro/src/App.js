@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/navbar';
 import Footer from './components/footer';
+import Counter from './components/counter';
+import TextBox from './components/textbox';
 
 class App extends Component {
    constructor(){
@@ -16,12 +18,19 @@ class App extends Component {
         "All State Blog",
         "Careers",
         "All State Investments"]
-      }
+      };
+      this.numbersOnlyRegex =/^\d+$/;
+      this.alphabetsOnlyRegex =/^[a-zA-Z]+$/;
    }
   render() {
     return (
-      <div className="App">
+      <div className="App container" >
         <NavBar  title={this.configureHeader.companyName} />
+         
+          <TextBox regex = {this.numbersOnlyRegex}/>
+          
+          <TextBox regex = {this.alphabetsOnlyRegex}/>
+          <Counter />
         <Footer  
         footerItems =
          {this.configureFooter.footerData}
