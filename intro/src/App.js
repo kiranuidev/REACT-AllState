@@ -1,26 +1,33 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import NavBar from './components/navbar';
+import Footer from './components/footer';
 
 class App extends Component {
+   constructor(){
+      super();
+      this.configureHeader = {
+          companyName:'All State'
+      }
+      this.configureFooter ={
+        footerData:["About us", 
+        "Contact Us", "Site Map",
+        "All State Blog",
+        "Careers",
+        "All State Investments"]
+      }
+   }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <NavBar  title={this.configureHeader.companyName} />
+        <Footer  
+        footerItems =
+         {this.configureFooter.footerData}
+          />
       </div>
+     
     );
   }
 }
